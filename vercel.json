@@ -2,24 +2,25 @@
   "version": 2,
   "builds": [
     {
-      "src": "client/vite.config.ts",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist/public"
+        "distDir": "dist"
       }
     },
     {
       "src": "server/index.ts",
-      "use": "@vercel/node",
-      "config": {
-        "memory": 2048
-      }
+      "use": "@vercel/node"
     }
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/api/(.*)",
       "destination": "server/index.ts"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
     }
   ]
 }

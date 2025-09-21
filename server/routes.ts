@@ -8,7 +8,8 @@ import type { Product } from "@shared/schema";
 export async function registerRoutes(app: Express): Promise<Server> {
 
   const getProductsFromFile = async () => {
-    const jsonPath = path.resolve(process.cwd(), 'api', 'products.json');
+    // FIX: Use process.cwd() to create a reliable path in Vercel's environment
+    const jsonPath = path.join(process.cwd(), 'server', '_products.json');
     const jsonData = await fs.readFile(jsonPath, 'utf-8');
     return JSON.parse(jsonData) as Product[];
   };
@@ -91,7 +92,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json({ products: paginatedProducts, total });
 
     } catch (error) {
-      res.status(400).json({ message: "Invalid query parameters" });
+      // FIX: Improved error handling
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: "Invalid query parameters", errors: error.errors });
+      }
+      res.status(500).json({ message: "Internal server error" });
     }
   });
 
