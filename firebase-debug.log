@@ -1,0 +1,113 @@
+[debug] [2025-09-21T14:00:10.923Z] ----------------------------------------------------------------------
+[debug] [2025-09-21T14:00:10.926Z] Command:       /nix/store/ws50yvm6vzlzf7jzz6n7xh4szddrack1-nodejs-20.19.1/bin/node /nix/store/wma3rvxxva78rqvnpja82nx5b3mclpxg-firebase-tools-14.15.2/lib/node_modules/firebase-tools/lib/bin/firebase.js init hosting
+[debug] [2025-09-21T14:00:10.926Z] CLI Version:   14.15.2
+[debug] [2025-09-21T14:00:10.926Z] Platform:      linux
+[debug] [2025-09-21T14:00:10.932Z] Node Version:  v20.19.1
+[debug] [2025-09-21T14:00:10.932Z] Time:          Sun Sep 21 2025 14:00:10 GMT+0000 (Coordinated Universal Time)
+[debug] [2025-09-21T14:00:10.932Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-21T14:00:10.937Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:10.937Z] No OAuth tokens found
+[error] Failed to fetch Firebase Project from current Studio Workspace: Unable to refresh auth: not yet authenticated.
+[debug] [2025-09-21T14:00:10.941Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-21T14:00:10.942Z] > authorizing via signed-in user (darshan.bhcs@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/user/softdef-product-listing
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-09-21T14:00:16.875Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:16.876Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:16.876Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-21T14:00:16.876Z] > authorizing via signed-in user (darshan.bhcs@gmail.com)
+[debug] [2025-09-21T14:00:16.884Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/availableProjects pageSize=100
+[debug] [2025-09-21T14:00:17.639Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/availableProjects 200
+[debug] [2025-09-21T14:00:17.640Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/availableProjects [omitted]
+[debug] [2025-09-21T14:00:21.895Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:21.896Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:21.896Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-21T14:00:21.896Z] > authorizing via signed-in user (darshan.bhcs@gmail.com)
+[debug] [2025-09-21T14:00:21.896Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/friendly-magpie-457313-t5:addFirebase [none]
+[debug] [2025-09-21T14:00:23.892Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/friendly-magpie-457313-t5:addFirebase 200
+[debug] [2025-09-21T14:00:23.893Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/friendly-magpie-457313-t5:addFirebase {"name":"operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx"}
+[debug] [2025-09-21T14:00:23.895Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:23.895Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:23.895Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-21T14:00:23.895Z] > authorizing via signed-in user (darshan.bhcs@gmail.com)
+[debug] [2025-09-21T14:00:23.895Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx [none]
+[debug] [2025-09-21T14:00:25.490Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx 200
+[debug] [2025-09-21T14:00:25.490Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx {"name":"operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx"}
+[debug] [2025-09-21T14:00:25.992Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2025-09-21T14:00:25.995Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:25.996Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:25.996Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-21T14:00:25.996Z] > authorizing via signed-in user (darshan.bhcs@gmail.com)
+[debug] [2025-09-21T14:00:25.996Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx [none]
+[debug] [2025-09-21T14:00:26.511Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx 200
+[debug] [2025-09-21T14:00:26.511Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx {"name":"operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx"}
+[debug] [2025-09-21T14:00:27.511Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2025-09-21T14:00:27.512Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:27.513Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:27.513Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-21T14:00:27.513Z] > authorizing via signed-in user (darshan.bhcs@gmail.com)
+[debug] [2025-09-21T14:00:27.521Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx [none]
+[debug] [2025-09-21T14:00:27.971Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx 200
+[debug] [2025-09-21T14:00:27.971Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx {"name":"operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx"}
+[debug] [2025-09-21T14:00:29.975Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2025-09-21T14:00:29.976Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:29.976Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:29.976Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-21T14:00:29.977Z] > authorizing via signed-in user (darshan.bhcs@gmail.com)
+[debug] [2025-09-21T14:00:29.977Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx [none]
+[debug] [2025-09-21T14:00:30.453Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx 200
+[debug] [2025-09-21T14:00:30.454Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx {"name":"operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx"}
+[debug] [2025-09-21T14:00:34.456Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2025-09-21T14:00:34.457Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:34.458Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:34.458Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-21T14:00:34.458Z] > authorizing via signed-in user (darshan.bhcs@gmail.com)
+[debug] [2025-09-21T14:00:34.462Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx [none]
+[debug] [2025-09-21T14:00:34.945Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx 200
+[debug] [2025-09-21T14:00:34.946Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx {"name":"operations/workflows/MmI2ZDk5YWItZmU1Mi00MmJjLWE5NTMtNmJlMDMyNmM5ZjUx","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.FirebaseProject","projectId":"friendly-magpie-457313-t5","projectNumber":"614284708170","displayName":"My First Project","name":"projects/friendly-magpie-457313-t5","resources":{"hostingSite":"friendly-magpie-457313-t5"}}}
+[info] 
+[info] 🎉🎉🎉 Your Firebase project is ready! 🎉🎉🎉
+[info] 
+[info] Project information:
+[info]    - Project ID: friendly-magpie-457313-t5
+[info]    - Project Name: My First Project
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/friendly-magpie-457313-t5/overview
+[info] i  Using project friendly-magpie-457313-t5 (My First Project) 
+[info] 
+=== Hosting Setup
+[debug] [2025-09-21T14:00:34.992Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:34.992Z] No OAuth tokens found
+[debug] [2025-09-21T14:00:34.992Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-21T14:00:34.994Z] > authorizing via signed-in user (darshan.bhcs@gmail.com)
+[debug] [2025-09-21T14:00:34.995Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/friendly-magpie-457313-t5 [none]
+[debug] [2025-09-21T14:00:35.212Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/friendly-magpie-457313-t5 200
+[debug] [2025-09-21T14:00:35.212Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/friendly-magpie-457313-t5 {"projectId":"friendly-magpie-457313-t5","projectNumber":"614284708170","displayName":"My First Project","name":"projects/friendly-magpie-457313-t5","resources":{"hostingSite":"friendly-magpie-457313-t5"},"state":"ACTIVE","etag":"1_9c537031-f714-4268-b59d-b75bff819a9f"}
+[debug] [2025-09-21T14:00:35.245Z] SyntaxError: Expected ',' or '}' after property value in JSON at position 3515
+    at JSON.parse (<anonymous>)
+    at getConfig (/nix/store/wma3rvxxva78rqvnpja82nx5b3mclpxg-firebase-tools-14.15.2/lib/node_modules/firebase-tools/lib/frameworks/express/index.js:16:30)
+    at async discover (/nix/store/wma3rvxxva78rqvnpja82nx5b3mclpxg-firebase-tools-14.15.2/lib/node_modules/firebase-tools/lib/frameworks/express/index.js:24:43)
+    at async discover (/nix/store/wma3rvxxva78rqvnpja82nx5b3mclpxg-firebase-tools-14.15.2/lib/node_modules/firebase-tools/lib/frameworks/index.js:47:32)
+    at async Object.doSetup (/nix/store/wma3rvxxva78rqvnpja82nx5b3mclpxg-firebase-tools-14.15.2/lib/node_modules/firebase-tools/lib/init/features/hosting/index.js:54:11)
+    at async init (/nix/store/wma3rvxxva78rqvnpja82nx5b3mclpxg-firebase-tools-14.15.2/lib/node_modules/firebase-tools/lib/init/index.js:68:13)
+    at async Command.initAction [as actionFn] (/nix/store/wma3rvxxva78rqvnpja82nx5b3mclpxg-firebase-tools-14.15.2/lib/node_modules/firebase-tools/lib/commands/init.js:214:5)
+[error] 
+[error] Error: An unexpected error has occurred.
