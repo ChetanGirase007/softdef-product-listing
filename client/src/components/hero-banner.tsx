@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 export default function HeroBanner() {
   return (
@@ -21,20 +22,25 @@ export default function HeroBanner() {
             Discover our premium collection of sneakers, belts, and accessories. Quality meets fashion in every piece.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              size="lg"
-              className="bg-white text-black hover:bg-gray-100 px-8 py-4 font-semibold text-lg"
-              data-testid="hero-shop-button"
-            >
-              Shop Collection
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-black px-8 py-4 font-semibold text-lg"
-            >
-              New Arrivals
-            </Button>
+            <Link href="/sneakers">
+              <Button
+                size="lg"
+                className="bg-white text-black hover:bg-gray-100 px-8 py-4 font-semibold text-lg"
+                data-testid="hero-shop-button"
+              >
+                Shop Collection
+              </Button>
+            </Link>
+            <Link href="/">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-black px-8 py-4 font-semibold text-lg"
+                data-testid="hero-new-arrivals-button"
+              >
+                New Arrivals
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

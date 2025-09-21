@@ -7,7 +7,7 @@ export interface IStorage {
   createUser(user: InsertUser): Promise<User>;
   getProducts(filters?: {
     category?: string;
-    brand?: string;
+    brand?: string[];
     colors?: string[];
     minPrice?: number;
     maxPrice?: number;
@@ -350,7 +350,12 @@ export class MemStorage implements IStorage {
       const fullProduct: Product = { 
         ...product, 
         id,
-        colors: Array.isArray(product.colors) ? product.colors : []
+        colors: (product.colors as string[]) || [],
+        discountPrice: product.discountPrice || null,
+        discountPercent: product.discountPercent || null,
+        ratingValue: product.ratingValue || "0",
+        ratingCount: product.ratingCount || 0,
+        isHot: product.isHot || false
       };
       this.products.set(id, fullProduct);
     });
@@ -459,7 +464,12 @@ export class MemStorage implements IStorage {
     const fullProduct: Product = { 
       ...product, 
       id,
-      colors: product.colors || []
+      colors: (product.colors as string[]) || [],
+      discountPrice: product.discountPrice || null,
+      discountPercent: product.discountPercent || null,
+      ratingValue: product.ratingValue || "0",
+      ratingCount: product.ratingCount || 0,
+      isHot: product.isHot || false
     };
     this.products.set(id, fullProduct);
     return fullProduct;

@@ -67,7 +67,7 @@ export default function ProductCard({
         <img
           src={product.imageUrl}
           alt={product.name}
-          className="w-full h-48 object-cover"
+          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
           data-testid={`product-image-${product.id}`}
           loading="lazy"
         />
@@ -89,6 +89,7 @@ export default function ProductCard({
             className="bg-white/80 hover:bg-white p-1.5 rounded-full shadow-sm"
             onClick={() => onAddToWishlist(product.id)}
             data-testid={`wishlist-${product.id}`}
+            aria-label="Add to wishlist"
           >
             <Heart className="w-4 h-4" />
           </Button>
@@ -98,6 +99,7 @@ export default function ProductCard({
             className="bg-white/80 hover:bg-white p-1.5 rounded-full shadow-sm"
             onClick={() => onQuickView(product.id)}
             data-testid={`quick-view-${product.id}`}
+            aria-label="Quick view"
           >
             <Eye className="w-4 h-4" />
           </Button>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
@@ -67,7 +68,7 @@ export default function Bag() {
           <div className="text-center py-16">
             <h2 className="text-xl font-semibold mb-4">Your bag is empty</h2>
             <p className="text-muted-foreground mb-8">Add some items to get started</p>
-            <Button onClick={() => window.history.back()}>Continue Shopping</Button>
+            <Link href="/"><Button data-testid="continue-shopping-button">Continue Shopping</Button></Link>
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -81,6 +82,9 @@ export default function Bag() {
                           src={item.image} 
                           alt={item.name}
                           className="w-full h-full object-cover rounded-lg"
+                          loading="lazy"
+                          decoding="async"
+                          data-testid={`bag-item-image-${item.id}`}
                         />
                       </div>
                       
@@ -96,6 +100,8 @@ export default function Bag() {
                           size="sm"
                           onClick={() => removeItem(item.id)}
                           className="text-destructive hover:text-destructive"
+                          data-testid={`remove-item-${item.id}`}
+                          aria-label="Remove item"
                         >
                           <Trash2 className="h-4 w-4" />
                         </Button>
@@ -151,7 +157,7 @@ export default function Bag() {
                     </p>
                   )}
                   
-                  <Button className="w-full mt-6" size="lg">
+                  <Button className="w-full mt-6" size="lg" data-testid="checkout-button">
                     Proceed to Checkout
                   </Button>
                 </CardContent>

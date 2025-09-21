@@ -148,6 +148,9 @@ export default function Belt() {
                   src={belt.image} 
                   alt={belt.name}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  data-testid={`belt-image-${belt.id}`}
                 />
               </div>
               
@@ -200,6 +203,7 @@ export default function Belt() {
                   <Button 
                     disabled={!selectedSize[belt.id]}
                     className="ml-4"
+                    data-testid={`add-to-bag-${belt.id}`}
                   >
                     Add to Bag
                   </Button>
