@@ -1,43 +1,68 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
-import { storage } from '../server/storage';
+import { promises as fs } from 'fs';
+import path from 'path';
+import type { Product } from '@shared/schema';
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // Enable CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
-
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
+// Define a handler function for Netlify
+export async function handler(event: { httpMethod: string; }) {
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+    };
   }
 
-  if (req.method === 'GET') {
+  if (event.httpMethod === 'GET') {
     try {
-      const { products } = await storage.getProducts();
-      
-      const brands = Array.from(new Set(products.map(p => p.brand)));
-      const categories = Array.from(new Set(products.map(p => p.category)));
-      const colors = Array.from(new Set(products.flatMap(p => p.colors)));
-      
-      // Get brand counts
-      const brandCounts = brands.reduce((acc, brand) => {
-        acc[brand] = products.filter(p => p.brand === brand).length;
-        return acc;
-      }, {} as Record<string, number>);
+      // Read products from the JSON file
+      const jsonPath = path.resolve(process.cwd(), 'api', 'products.json');
+      const jsonData = await fs.readFile(jsonPath, 'utf-8');
+      const products: Product[] = JSON.parse(jsonData);
 
-      res.json({
-        brands: brandCounts,
-        categories,
-        colors,
-      });
+      // Calculate filters
+      const brands = new Map<string, number>();
+      const colors = new Map<string, number>();
+
+      for (const product of products) {
+        // Count brands
+        if (product.brand) {
+          brands.set(product.brand, (brands.get(product.brand) || 0) + 1);
+        }
+
+        // Count colors
+        if (product.colors && Array.isArray(product.colors)) {
+          for (const color of product.colors) {
+            colors.set(color, (colors.get(color) || 0) + 1);
+          }
+        }
+      }
+
+      const filterData = {
+        brands: Array.from(brands.entries()).map(([name, count]) => ({ name, count })),
+        colors: Array.from(colors.entries()).map(([name, count]) => ({ name, count })),
+      };
+
+      return {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(filterData),
+      };
+
     } catch (error) {
-      res.status(500).json({ message: "Internal server error" });
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: "Error reading product data" }),
+      };
     }
-  } else {
-    res.status(405).json({ message: 'Method not allowed' });
   }
+
+  return {
+    statusCode: 405,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: 'Method not allowed' }),
+  };
 }

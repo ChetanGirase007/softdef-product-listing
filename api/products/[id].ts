@@ -1,34 +1,64 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
-import { storage } from '../../server/storage';
+import { promises as fs } from 'fs';
+import path from 'path';
+import type { Product } from '@shared/schema';
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // Enable CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
+// Define a handler function for Netlify
+export async function handler(event: { httpMethod: string; path: string; }) {
 
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+    };
   }
 
-  if (req.method === 'GET') {
+  if (event.httpMethod === 'GET') {
     try {
-      const { id } = req.query;
-      const product = await storage.getProductById(id as string);
-      
-      if (!product) {
-        return res.status(404).json({ message: "Product not found" });
+      const id = event.path.split('/').pop();
+
+      if (!id) {
+        return {
+          statusCode: 400,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: "Product ID is required" }),
+        };
       }
+
+      const jsonPath = path.resolve(process.cwd(), 'api', 'products.json');
+      const jsonData = await fs.readFile(jsonPath, 'utf-8');
+      const products: Product[] = JSON.parse(jsonData);
       
-      res.json(product);
+      const product = products.find(p => p.id === id);
+
+      if (product) {
+        return {
+          statusCode: 200,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(product),
+        };
+      } else {
+        return {
+          statusCode: 404,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: "Product not found" }),
+        };
+      }
     } catch (error) {
-      res.status(500).json({ message: "Internal server error" });
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: "Error reading product data" }),
+      };
     }
-  } else {
-    res.status(405).json({ message: 'Method not allowed' });
   }
+
+  return {
+    statusCode: 405,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: 'Method not allowed' }),
+  };
 }
