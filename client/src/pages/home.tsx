@@ -73,51 +73,55 @@ export default function Home() {
 
   // Update URL parameters when filters change
   useEffect(() => {
-    const params = new URLSearchParams();
-    
-    if (filters.brands.length > 0) {
-      params.set('brand', filters.brands.join(','));
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams();
+      
+      if (filters.brands.length > 0) {
+        params.set('brand', filters.brands.join(','));
+      }
+      
+      if (filters.colors.length > 0) {
+        params.set('colors', filters.colors.join(','));
+      }
+      
+      if (filters.priceRange[0] !== 1299 || filters.priceRange[1] !== 25999) {
+        params.set('minPrice', filters.priceRange[0].toString());
+        params.set('maxPrice', filters.priceRange[1].toString());
+      }
+      
+      if (sortBy !== 'name-asc') {
+        params.set('sortBy', sortBy);
+      }
+      
+      if (currentPage !== 1) {
+        params.set('page', currentPage.toString());
+      }
+      
+      const newUrl = params.toString() ? `/?${params.toString()}` : '/';
+      window.history.replaceState({}, '', newUrl);
     }
-    
-    if (filters.colors.length > 0) {
-      params.set('colors', filters.colors.join(','));
-    }
-    
-    if (filters.priceRange[0] !== 1299 || filters.priceRange[1] !== 25999) {
-      params.set('minPrice', filters.priceRange[0].toString());
-      params.set('maxPrice', filters.priceRange[1].toString());
-    }
-    
-    if (sortBy !== 'name-asc') {
-      params.set('sortBy', sortBy);
-    }
-    
-    if (currentPage !== 1) {
-      params.set('page', currentPage.toString());
-    }
-    
-    const newUrl = params.toString() ? `/?${params.toString()}` : '/';
-    window.history.replaceState({}, '', newUrl);
   }, [filters, sortBy, currentPage]);
 
   // Parse URL parameters on mount
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    
-    const brands = params.get('brand')?.split(',').filter(Boolean) || [];
-    const colors = params.get('colors')?.split(',').filter(Boolean) || [];
-    const minPrice = params.get('minPrice') ? parseInt(params.get('minPrice')!) : 1299;
-    const maxPrice = params.get('maxPrice') ? parseInt(params.get('maxPrice')!) : 25999;
-    const urlSortBy = params.get('sortBy') || 'name-asc';
-    const urlPage = params.get('page') ? parseInt(params.get('page')!) : 1;
-    
-    setFilters({
-      brands,
-      colors,
-      priceRange: [minPrice, maxPrice],
-    });
-    setSortBy(urlSortBy);
-    setCurrentPage(urlPage);
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      
+      const brands = params.get('brand')?.split(',').filter(Boolean) || [];
+      const colors = params.get('colors')?.split(',').filter(Boolean) || [];
+      const minPrice = params.get('minPrice') ? parseInt(params.get('minPrice')!) : 1299;
+      const maxPrice = params.get('maxPrice') ? parseInt(params.get('maxPrice')!) : 25999;
+      const urlSortBy = params.get('sortBy') || 'name-asc';
+      const urlPage = params.get('page') ? parseInt(params.get('page')!) : 1;
+      
+      setFilters({
+        brands,
+        colors,
+        priceRange: [minPrice, maxPrice],
+      });
+      setSortBy(urlSortBy);
+      setCurrentPage(urlPage);
+    }
   }, []);
 
   const handleFiltersChange = (newFilters: FilterState) => {
@@ -132,7 +136,9 @@ export default function Home() {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   if (isLoading) {
