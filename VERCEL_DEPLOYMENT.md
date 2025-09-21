@@ -25,30 +25,41 @@ Your e-commerce application is now ready for deployment on Vercel! Follow these 
 ## Configuration Details
 
 ✅ **vercel.json** - Configured for:
-- Static build with Vite
+- Static build with Vite from client directory
+- Output directory: `dist/public`
 - Serverless functions for API routes
-- Proper routing for SPA and API calls
-- Static asset serving
+- SPA routing fallback
 
 ✅ **API Routes** - Converted to Vercel serverless functions:
 - `/api/products` - Get all products with filters
 - `/api/products/[id]` - Get single product
 - `/api/filters` - Get available filters
 
-✅ **Static Assets** - Images copied to public directory for serving
+✅ **Static Assets** - Images copied to `client/public/` for Vite build process
+
+✅ **Build Process**:
+- Vite builds the React app from `client/` directory
+- Assets are automatically copied from `client/public/` to build output
+- API functions are deployed as serverless functions
 
 ## Environment Variables
 No additional environment variables needed for this deployment.
 
 ## Post-Deployment
 - Your app will be available at: `https://your-project-name.vercel.app`
-- API endpoints will work automatically
-- All images and static assets will be served correctly
+- API endpoints will work automatically: `/api/products`, `/api/filters`, etc.
+- All images and static assets will be served correctly from the build
+
+## Important Notes
+- The app uses in-memory storage, so data resets on each serverless function cold start
+- For production, consider using a persistent database like Vercel Postgres or external DB
+- Images are now served from the build output, not the original attached_assets directory
 
 ## Troubleshooting
-- If images don't load, check that `attached_assets` are properly copied to `public/`
-- If API calls fail, verify the routes in `vercel.json` match your API structure
-- Check Vercel function logs in the dashboard for any serverless function errors
+- If build fails, ensure all dependencies are in `package.json` dependencies (not devDependencies)
+- If API calls fail, check the Network tab for 404s and verify routes in `vercel.json`
+- Check Vercel function logs in the dashboard for serverless function errors
+- If images don't load, verify they're in `client/public/attached_assets/`
 
 ## Custom Domain (Optional)
 1. Go to your project settings in Vercel dashboard
