@@ -133,7 +133,7 @@ export class MemStorage implements IStorage {
         colors: ["white", "green"],
         category: "sneakers",
         brand: "Adidas",
-        imageUrl: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_19df4735.jpg"
       },
       {
         name: "Adidas NMD R1",
@@ -146,7 +146,7 @@ export class MemStorage implements IStorage {
         colors: ["black", "red", "white"],
         category: "sneakers",
         brand: "Adidas",
-        imageUrl: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_2ef50bb6.jpg"
       },
       {
         name: "Vans Old Skool",
@@ -159,7 +159,7 @@ export class MemStorage implements IStorage {
         colors: ["black", "white"],
         category: "sneakers",
         brand: "Vans",
-        imageUrl: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_307d0cde.jpg"
       },
       {
         name: "Vans Authentic",
@@ -172,7 +172,7 @@ export class MemStorage implements IStorage {
         colors: ["blue", "red", "yellow"],
         category: "sneakers",
         brand: "Vans",
-        imageUrl: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_3e95f68e.jpg"
       },
       {
         name: "Converse Chuck Taylor All Star",
@@ -185,7 +185,7 @@ export class MemStorage implements IStorage {
         colors: ["black", "white", "red"],
         category: "sneakers",
         brand: "All Stars",
-        imageUrl: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_96769d4d.jpg"
       },
       {
         name: "Puma RS-X",
@@ -198,7 +198,7 @@ export class MemStorage implements IStorage {
         colors: ["white", "blue", "yellow"],
         category: "sneakers",
         brand: "Actions",
-        imageUrl: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_9b648aa4.jpg"
       },
       {
         name: "Skechers D'Lites",
@@ -211,7 +211,7 @@ export class MemStorage implements IStorage {
         colors: ["white", "black", "pink"],
         category: "sneakers",
         brand: "Skechers",
-        imageUrl: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_a4e8b655.jpg"
       },
       {
         name: "Skechers Go Walk",
@@ -224,7 +224,7 @@ export class MemStorage implements IStorage {
         colors: ["gray", "blue"],
         category: "sneakers",
         brand: "Skechers",
-        imageUrl: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_ded6881d.jpg"
       },
       {
         name: "Nike Air Force 1",
@@ -250,7 +250,7 @@ export class MemStorage implements IStorage {
         colors: ["black", "white", "orange"],
         category: "sneakers",
         brand: "Nike",
-        imageUrl: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_19df4735.jpg"
       },
       {
         name: "Adidas Gazelle",
@@ -263,7 +263,7 @@ export class MemStorage implements IStorage {
         colors: ["blue", "red", "green"],
         category: "sneakers",
         brand: "Adidas",
-        imageUrl: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_2ef50bb6.jpg"
       },
       {
         name: "Adidas Superstar",
@@ -276,7 +276,7 @@ export class MemStorage implements IStorage {
         colors: ["white", "black", "gold"],
         category: "sneakers",
         brand: "Adidas",
-        imageUrl: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_307d0cde.jpg"
       },
       {
         name: "New Balance 990v5",
@@ -289,7 +289,7 @@ export class MemStorage implements IStorage {
         colors: ["gray", "navy"],
         category: "sneakers",
         brand: "Actions",
-        imageUrl: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_3e95f68e.jpg"
       },
       {
         name: "Reebok Classic Leather",
@@ -302,7 +302,7 @@ export class MemStorage implements IStorage {
         colors: ["white", "black", "brown"],
         category: "sneakers",
         brand: "Actions",
-        imageUrl: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_96769d4d.jpg"
       },
       {
         name: "Puma Suede Classic",
@@ -315,7 +315,7 @@ export class MemStorage implements IStorage {
         colors: ["blue", "red", "black"],
         category: "sneakers",
         brand: "Actions",
-        imageUrl: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_9b648aa4.jpg"
       },
       {
         name: "Converse One Star",
@@ -328,7 +328,7 @@ export class MemStorage implements IStorage {
         colors: ["black", "white", "yellow"],
         category: "sneakers",
         brand: "All Stars",
-        imageUrl: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_a4e8b655.jpg"
       },
       {
         name: "Vans Sk8-Hi",
@@ -341,7 +341,7 @@ export class MemStorage implements IStorage {
         colors: ["black", "white", "red"],
         category: "sneakers",
         brand: "Vans",
-        imageUrl: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_ded6881d.jpg"
       }
     ];
 
