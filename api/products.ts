@@ -32,7 +32,7 @@ export async function handler(event: { httpMethod: string; queryStringParameters
       const filters = querySchema.parse(event.queryStringParameters);
 
       // Read products from the JSON file
-      const jsonPath = path.resolve(process.cwd(), 'api', 'products.json');
+      const jsonPath = path.resolve(process.cwd(), 'api', '_products.json');
       const jsonData = await fs.readFile(jsonPath, 'utf-8');
       let products: Product[] = JSON.parse(jsonData);
 
