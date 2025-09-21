@@ -25,7 +25,7 @@ export default function Bag() {
       size: "42",
       color: "White",
       quantity: 1,
-      image: "/api/placeholder/150/150"
+      image: "/attached_assets/stock_images/high_quality_sneaker_a4e8b655.jpg"
     },
     {
       id: "2", 
@@ -34,7 +34,7 @@ export default function Bag() {
       size: "41",
       color: "Navy",
       quantity: 2,
-      image: "/api/placeholder/150/150"
+      image: "/attached_assets/stock_images/high_quality_sneaker_96769d4d.jpg"
     }
   ]);
 

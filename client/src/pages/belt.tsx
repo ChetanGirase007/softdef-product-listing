@@ -30,7 +30,7 @@ export default function Belt() {
       material: "Genuine Leather",
       color: "Black",
       sizes: ["28", "30", "32", "34", "36", "38", "40"],
-      image: "/api/placeholder/300/300",
+      image: "/attached_assets/stock_images/luxury_leather_belts_68266f56.jpg",
       brand: "SoftDef",
       description: "Premium quality genuine leather belt perfect for formal occasions"
     },
@@ -41,7 +41,7 @@ export default function Belt() {
       material: "Full Grain Leather",
       color: "Brown/Black",
       sizes: ["30", "32", "34", "36", "38", "40"],
-      image: "/api/placeholder/300/300",
+      image: "/attached_assets/stock_images/luxury_leather_belts_c9139c62.jpg",
       brand: "SoftDef",
       description: "Versatile reversible belt that goes with any outfit"
     },
@@ -52,7 +52,7 @@ export default function Belt() {
       material: "Canvas",
       color: "Navy",
       sizes: ["S", "M", "L", "XL"],
-      image: "/api/placeholder/300/300",
+      image: "/attached_assets/stock_images/luxury_leather_belts_25ecfdb4.jpg",
       brand: "UrbanStyle",
       description: "Durable canvas belt perfect for casual wear"
     },
@@ -63,7 +63,7 @@ export default function Belt() {
       material: "Italian Leather", 
       color: "Cognac",
       sizes: ["30", "32", "34", "36", "38", "40", "42"],
-      image: "/api/placeholder/300/300",
+      image: "/attached_assets/stock_images/luxury_leather_belts_b03bdd97.jpg",
       brand: "Luxury",
       description: "Handcrafted Italian leather belt for the discerning professional"
     },
@@ -74,7 +74,7 @@ export default function Belt() {
       material: "Nylon Webbing",
       color: "Olive Green",
       sizes: ["S", "M", "L", "XL", "XXL"],
-      image: "/api/placeholder/300/300", 
+      image: "/attached_assets/stock_images/luxury_leather_belts_02b6095d.jpg", 
       brand: "Tactical",
       description: "Heavy-duty tactical belt built for durability and function"
     },
@@ -85,7 +85,7 @@ export default function Belt() {
       material: "Braided Leather",
       color: "Tan", 
       sizes: ["28", "30", "32", "34", "36", "38"],
-      image: "/api/placeholder/300/300",
+      image: "/attached_assets/stock_images/luxury_leather_belts_25b69e9a.jpg",
       brand: "Artisan",
       description: "Handwoven braided leather belt with unique texture and style"
     }

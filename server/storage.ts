@@ -42,7 +42,7 @@ export class MemStorage implements IStorage {
         colors: ["blue", "red", "black"],
         category: "sneakers",
         brand: "Nike",
-        imageUrl: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_a4e8b655.jpg"
       },
       {
         name: "Nike Air Max 270 React Sport",
@@ -55,7 +55,7 @@ export class MemStorage implements IStorage {
         colors: ["red", "black", "white"],
         category: "sneakers",
         brand: "Nike",
-        imageUrl: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_96769d4d.jpg"
       },
       {
         name: "Nike Air Max 270 React Classic",
@@ -68,7 +68,7 @@ export class MemStorage implements IStorage {
         colors: ["brown", "black"],
         category: "sneakers",
         brand: "Nike",
-        imageUrl: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_307d0cde.jpg"
       },
       {
         name: "Nike Air Max 270 React Pro",
@@ -81,7 +81,7 @@ export class MemStorage implements IStorage {
         colors: ["blue", "green", "white"],
         category: "sneakers",
         brand: "Nike",
-        imageUrl: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_19df4735.jpg"
       },
       {
         name: "Nike Air Max 270 React Colorful",
@@ -94,7 +94,7 @@ export class MemStorage implements IStorage {
         colors: ["yellow", "green", "blue"],
         category: "sneakers",
         brand: "Nike",
-        imageUrl: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_3e95f68e.jpg"
       },
       {
         name: "Nike Air Max 270 React Purple",
@@ -107,7 +107,7 @@ export class MemStorage implements IStorage {
         colors: ["purple", "blue"],
         category: "sneakers",
         brand: "Nike",
-        imageUrl: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_9b648aa4.jpg"
       },
       {
         name: "Adidas Ultraboost 22",
@@ -120,7 +120,7 @@ export class MemStorage implements IStorage {
         colors: ["black", "white", "blue"],
         category: "sneakers",
         brand: "Adidas",
-        imageUrl: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_2ef50bb6.jpg"
       },
       {
         name: "Adidas Stan Smith Classic",
@@ -237,7 +237,7 @@ export class MemStorage implements IStorage {
         colors: ["white", "black"],
         category: "sneakers",
         brand: "Nike",
-        imageUrl: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+        imageUrl: "/attached_assets/stock_images/high_quality_sneaker_ded6881d.jpg"
       },
       {
         name: "Nike React Element 55",
