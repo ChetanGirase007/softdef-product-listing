@@ -348,14 +348,18 @@ export class MemStorage implements IStorage {
     sampleProducts.forEach(product => {
       const id = randomUUID();
       const fullProduct: Product = { 
-        ...product, 
         id,
+        name: product.name,
+        price: product.price,
+        discountPrice: product.discountPrice ?? null,
+        discountPercent: product.discountPercent ?? null,
+        ratingValue: product.ratingValue ?? "0",
+        ratingCount: product.ratingCount ?? 0,
+        isHot: product.isHot ?? false,
         colors: (product.colors as string[]) || [],
-        discountPrice: product.discountPrice || null,
-        discountPercent: product.discountPercent || null,
-        ratingValue: product.ratingValue || "0",
-        ratingCount: product.ratingCount || 0,
-        isHot: product.isHot || false
+        category: product.category,
+        brand: product.brand,
+        imageUrl: product.imageUrl
       };
       this.products.set(id, fullProduct);
     });
@@ -462,14 +466,18 @@ export class MemStorage implements IStorage {
   async createProduct(product: InsertProduct): Promise<Product> {
     const id = randomUUID();
     const fullProduct: Product = { 
-      ...product, 
       id,
+      name: product.name,
+      price: product.price,
+      discountPrice: product.discountPrice ?? null,
+      discountPercent: product.discountPercent ?? null,
+      ratingValue: product.ratingValue ?? "0",
+      ratingCount: product.ratingCount ?? 0,
+      isHot: product.isHot ?? false,
       colors: (product.colors as string[]) || [],
-      discountPrice: product.discountPrice || null,
-      discountPercent: product.discountPercent || null,
-      ratingValue: product.ratingValue || "0",
-      ratingCount: product.ratingCount || 0,
-      isHot: product.isHot || false
+      category: product.category,
+      brand: product.brand,
+      imageUrl: product.imageUrl
     };
     this.products.set(id, fullProduct);
     return fullProduct;
