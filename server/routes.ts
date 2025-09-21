@@ -1,9 +1,18 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import { promises as fs } from 'fs';
+import path from 'path';
 import { z } from "zod";
+import type { Product } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+
+  const getProductsFromFile = async () => {
+    const jsonPath = path.resolve(process.cwd(), 'api', 'products.json');
+    const jsonData = await fs.readFile(jsonPath, 'utf-8');
+    return JSON.parse(jsonData) as Product[];
+  };
+
   // Get products with filters
   app.get("/api/products", async (req, res) => {
     try {
@@ -19,9 +28,68 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       const filters = querySchema.parse(req.query);
-      const result = await storage.getProducts(filters);
+      let products = await getProductsFromFile();
+
+      // Apply filters
+      if (filters?.category) {
+        products = products.filter(p => p.category === filters.category);
+      }
+      if (filters?.brand && filters.brand.length > 0) {
+        products = products.filter(p => filters.brand!.includes(p.brand));
+      }
+      if (filters?.colors && filters.colors.length > 0) {
+        products = products.filter(p => 
+          filters.colors!.some(color => p.colors.includes(color))
+        );
+      }
+      if (filters?.minPrice !== undefined) {
+        products = products.filter(p => 
+          parseFloat(p.discountPrice || p.price) >= filters.minPrice!
+        );
+      }
+      if (filters?.maxPrice !== undefined) {
+        products = products.filter(p => 
+          parseFloat(p.discountPrice || p.price) <= filters.maxPrice!
+        );
+      }
+
+      // Apply sorting
+      if (filters?.sortBy) {
+        switch (filters.sortBy) {
+          case 'name-asc':
+            products.sort((a, b) => a.name.localeCompare(b.name));
+            break;
+          case 'name-desc':
+            products.sort((a, b) => b.name.localeCompare(a.name));
+            break;
+          case 'price-asc':
+            products.sort((a, b) => 
+              parseFloat(a.discountPrice || a.price) - parseFloat(b.discountPrice || b.price)
+            );
+            break;
+          case 'price-desc':
+            products.sort((a, b) => 
+              parseFloat(b.discountPrice || b.price) - parseFloat(a.discountPrice || a.price)
+            );
+            break;
+          case 'popularity-desc':
+            products.sort((a, b) => b.ratingCount - a.ratingCount);
+            break;
+        }
+      }
+
+      const total = products.length;
       
-      res.json(result);
+      // Apply pagination
+      const page = filters?.page || 1;
+      const limit = filters?.limit || 12;
+      const startIndex = (page - 1) * limit;
+      const endIndex = startIndex + limit;
+      
+      const paginatedProducts = products.slice(startIndex, endIndex);
+
+      res.json({ products: paginatedProducts, total });
+
     } catch (error) {
       res.status(400).json({ message: "Invalid query parameters" });
     }
@@ -30,7 +98,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get single product
   app.get("/api/products/:id", async (req, res) => {
     try {
-      const product = await storage.getProductById(req.params.id);
+      const products = await getProductsFromFile();
+      const product = products.find(p => p.id === req.params.id);
+
       if (!product) {
         return res.status(404).json({ message: "Product not found" });
       }
@@ -43,23 +113,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get brands and categories for filters
   app.get("/api/filters", async (req, res) => {
     try {
-      const { products } = await storage.getProducts();
+      const products = await getProductsFromFile();
       
-      const brands = Array.from(new Set(products.map(p => p.brand)));
-      const categories = Array.from(new Set(products.map(p => p.category)));
-      const colors = Array.from(new Set(products.flatMap(p => p.colors)));
-      
-      // Get brand counts
-      const brandCounts = brands.reduce((acc, brand) => {
-        acc[brand] = products.filter(p => p.brand === brand).length;
-        return acc;
-      }, {} as Record<string, number>);
+      const brands = new Map<string, number>();
+      const colors = new Map<string, number>();
 
-      res.json({
-        brands: brandCounts,
-        categories,
-        colors,
-      });
+      for (const product of products) {
+        if (product.brand) {
+          brands.set(product.brand, (brands.get(product.brand) || 0) + 1);
+        }
+        if (product.colors && Array.isArray(product.colors)) {
+          for (const color of product.colors) {
+            colors.set(color, (colors.get(color) || 0) + 1);
+          }
+        }
+      }
+
+      const filterData = {
+        brands: Array.from(brands.entries()).map(([name, count]) => ({ name, count })),
+        colors: Array.from(colors.entries()).map(([name, count]) => ({ name, count })),
+      };
+      
+      res.json(filterData);
     } catch (error) {
       res.status(500).json({ message: "Internal server error" });
     }
