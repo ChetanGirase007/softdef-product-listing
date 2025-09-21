@@ -1,0 +1,8 @@
+# Redirect API calls to serverless functions
+/api/* /api/:splat 200
+
+# Serve static assets
+/attached_assets/* /attached_assets/:splat 200
+
+# SPA fallback
+/* /index.html 200
