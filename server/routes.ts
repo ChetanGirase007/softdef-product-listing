@@ -8,8 +8,13 @@ import type { Product } from "@shared/schema";
 export async function registerRoutes(app: Express): Promise<Server> {
 
   const getProductsFromFile = async () => {
-    // FIX: Use process.cwd() to create a reliable path in Vercel's environment
-    const jsonPath = path.join(process.cwd(), 'server', '_products.json');
+    // In production (Vercel), _products.json will be in the dist directory
+    let jsonPath;
+    if (process.env.NODE_ENV === 'production') {
+      jsonPath = path.join(process.cwd(), '_products.json');
+    } else {
+      jsonPath = path.join(process.cwd(), 'server', '_products.json');
+    }
     const jsonData = await fs.readFile(jsonPath, 'utf-8');
     return JSON.parse(jsonData) as Product[];
   };
